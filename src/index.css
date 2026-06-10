@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/* ─── GLOBAL THEME ─────────────────────────────────────── */
+@theme {
+  --font-serif: 'DM Serif Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* ─── RESET ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: #111;
+}
+
+/* ─── SHARED LAYOUT CONTAINER ───────────────────────────── */
+/* Every section uses .site-container for consistent centering */
+.site-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+.text-display {
+  font-family: 'DM Serif Display', serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* ─── DECORATIVE TEXT STYLES ────────────────────────────── */
+.highlight-mint {
+  background-color: #c8f7dc;
+  padding: 0 8px 2px 8px;
+  border-radius: 6px;
+  display: inline;
+}
+
+.highlight-pink {
+  background-color: #ffd6ec;
+  padding: 0 8px 2px 8px;
+  border-radius: 6px;
+  display: inline;
+}
+
+.underline-orange {
+  position: relative;
+  display: inline;
+}
+
+.underline-orange::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: repeating-linear-gradient(
+    0deg,
+    #f59e0b,
+    #f59e0b 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.9;
+}
+
+
+.circle-img {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.quote-mark {
+  font-family: 'Georgia', serif;
+  font-size: 5rem;
+  line-height: 0.8;
+  color: #d97706;
+  opacity: 0.55;
+  display: inline-block;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes floatDelayed {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 1200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.anim-float {
+  animation: float 4.5s ease-in-out infinite;
+}
+
+.anim-float-delayed {
+  animation: floatDelayed 4.5s ease-in-out 1.2s infinite;
+}
+
+.anim-fade-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.anim-fade-up-delay {
+  animation: fadeInUp 0.7s ease-out 0.35s both;
+}
+
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
